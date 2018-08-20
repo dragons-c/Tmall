@@ -50,7 +50,7 @@
                     <td><a href="admin_property_list?cid=${c.id}"><span class="glyphicon glyphicon-th-list"></span></a></td>
                     <td><a href="admin_product_list?cid=${c.id}"><span class="glyphicon glyphicon-shopping-cart"></span></a></td>
                     <td><a href="admin_category_edit?id=${c.id}"><span class="glyphicon glyphicon-edit"></span></a></td>
-                    <td><a deleteLink="true" href="admin_category_delete?id=${c.id}"><span class="   glyphicon glyphicon-trash"></span></a></td>
+                    <td><a deleteLink="true" href="admin_category_delete?id=${c.id}"><span class=" glyphicon glyphicon-trash"></span></a></td>
 
                 </tr>
             </c:forEach>
@@ -59,7 +59,7 @@
     </div>
 
     <div class="pageDiv">
-        <%//@include file="../include/admin/adminPage.jsp" %>
+        <%@include file="../include/admin/adminPage.jsp" %>
     </div>
 
     <div class="panel panel-warning addDiv">
@@ -72,7 +72,7 @@
                         <td><input  id="name" name="name" type="text" class="form-control"></td>
                     </tr>
                     <tr>
-                        <td>分类圖片</td>
+                        <td>分类图片</td>
                         <td>
                             <input id="categoryPic" accept="image/*" type="file" name="image" />
                         </td>

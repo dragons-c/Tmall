@@ -12,6 +12,7 @@ package ecjtu.mall.service.impl;
 
 import ecjtu.mall.mapper.CategoryMapper;
 import ecjtu.mall.pojo.Category;
+import ecjtu.mall.pojo.CategoryExample;
 import ecjtu.mall.service.CategoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -32,9 +33,33 @@ public class CategoryServiceImpl implements CategoryService {
     @Autowired
     private CategoryMapper categoryMapper;
 
+
+
     @Override
-    public List<Category> findAll() {
-        List<Category> list = categoryMapper.findAll();
-        return list;
+    public List<Category> list() {
+        CategoryExample example = new CategoryExample();
+        example.setOrderByClause("id desc");
+        return categoryMapper.selectByExample(example);
     }
+
+    @Override
+    public void add(Category category) {
+        categoryMapper.insert(category);
+    }
+
+    @Override
+    public void delete(int id) {
+        categoryMapper.deleteByPrimaryKey(id);
+    }
+
+    @Override
+    public Category get(int id) {
+        return categoryMapper.selectByPrimaryKey(id);
+    }
+
+    @Override
+    public void update(Category category) {
+        categoryMapper.updateByPrimaryKeySelective(category);
+    }
+
 }
