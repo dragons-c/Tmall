@@ -25,6 +25,13 @@ public class ProductImageController {
     ProductImageService productImageService;
     @Autowired
     ProductService productService;
+
+    /**
+     * 显示照片列表
+     * @param pid
+     * @param model
+     * @return
+     */
     @RequestMapping("admin_productImage_list")
     public  String list(int pid, Model model){
         Product product = productService.get(pid);
@@ -35,6 +42,15 @@ public class ProductImageController {
         model.addAttribute("pisDetail",pisDetail);
         return "admin/listProductImage";
     }
+
+    /**
+     * 增加商品图片，但是需要判断是单个还是详情的图片
+     * 然后操作和上传图片原理相似
+     * @param session
+     * @param productImage
+     * @param uploadedImageFile
+     * @return
+     */
     @RequestMapping("admin_productImage_add")
     public String add(HttpSession session, ProductImage productImage, UploadedImageFile uploadedImageFile){
         productImageService.add(productImage);
@@ -67,6 +83,13 @@ public class ProductImageController {
         }
         return "redirect:admin_productImage_list?pid="+productImage.getPid();
     }
+
+    /**
+     * 删除商品图片
+     * @param id
+     * @param session
+     * @return
+     */
     @RequestMapping("admin_productImage_delete")
     public String delete(int id,HttpSession session){
         ProductImage productImage = productImageService.get(id);

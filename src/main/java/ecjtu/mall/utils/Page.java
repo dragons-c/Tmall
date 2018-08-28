@@ -1,5 +1,8 @@
 package ecjtu.mall.utils;
 
+/**
+ * 分页工具类
+ */
 public class Page {
     private int start;//开始位置
     private  int count;//每页显示的数量

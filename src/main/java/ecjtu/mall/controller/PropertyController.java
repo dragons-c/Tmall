@@ -21,6 +21,14 @@ public class PropertyController {
     PropertyService propertyService;
     @Autowired
     CategoryService categoryService;
+
+    /**
+     * 查询属性列表
+     * @param model
+     * @param page
+     * @param cid
+     * @return
+     */
     @RequestMapping("admin_property_list")
     public String list(Model model, Page page, Integer cid){
         Category category = categoryService.get(cid);
@@ -34,12 +42,25 @@ public class PropertyController {
         model.addAttribute("page",page);
         return "admin/listProperty";
     }
+
+    /**
+     * 添加属性
+     * @param property
+     * @return
+     */
     @RequestMapping("admin_property_add")
     public String add(Property property){
         propertyService.add(property);
 
         return "redirect:admin_property_list?cid="+property.getCid();
     }
+
+    /**
+     * 编辑属性
+     * @param model
+     * @param id
+     * @return
+     */
     @RequestMapping("admin_property_edit")
     public String edit(Model model,int id){
         Property property = propertyService.get(id);
@@ -48,11 +69,23 @@ public class PropertyController {
         model.addAttribute("p",property);
         return "admin/editProperty";
     }
+
+    /**
+     * 更新属性
+     * @param property
+     * @return
+     */
     @RequestMapping("admin_property_update")
     public String update(Property property){
         propertyService.update(property);
         return "redirect:admin_property_list?cid="+property.getCid();
     }
+
+    /**
+     * 删除属性
+     * @param property
+     * @return
+     */
     @RequestMapping("admin_property_delete")
     public String delete(Property property){
         Property property1 = propertyService.get(property.getId());

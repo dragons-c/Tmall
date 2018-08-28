@@ -1,13 +1,4 @@
-/**
- * Copyright (C), 2015-2018, XXX有限公司
- * FileName: CategoryServiceImplTest
- * Author:   jack
- * Date:     18/08/16 17:18
- * Description:
- * History:
- * <author>          <time>          <version>          <desc>
- * 作者姓名           修改时间           版本号              描述
- */
+
 package ecjtu.test;
 
 import ecjtu.mall.pojo.Category;

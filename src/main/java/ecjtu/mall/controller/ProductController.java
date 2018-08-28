@@ -22,6 +22,14 @@ public class ProductController {
     ProductService productService;
     @Autowired
     CategoryService categoryService;
+
+    /**
+     * 查询商品
+     * @param model
+     * @param page
+     * @param cid
+     * @return
+     */
     @RequestMapping("admin_product_list")
     public String list(Model model, Page page,int cid){
         Category category = categoryService.get(cid);
@@ -36,6 +44,12 @@ public class ProductController {
         return "admin/listProduct";
 
     }
+
+    /**
+     * 增加商品
+     * @param product
+     * @return
+     */
     @RequestMapping("admin_product_add")
     public String add(Product product){
         product.setCreateDate(new Date());
